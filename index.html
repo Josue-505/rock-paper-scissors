@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getPlayer(){
+            playerChoice = prompt("Rock, Paper, Scissors?")
+            return playerChoice.toUpperCase()
+        }
+        function getComputer(){
+            const options = ["Rock", "Paper", "Scissors"]
+            computerChoice = options[Math.floor(Math.random() * 2)]
+            return computerChoice.toUpperCase()
+        }
+        function singleRound(comp, player){
+            if(comp == "ROCK" && player == "ROCK"){
+                console.log("Computer chose Rock, tie game")
+            }
+            else if(comp == "ROCK" && player == "PAPER"){
+                console.log("Computer chose Rock, you win!")
+            }
+            else if(comp == "ROCK" && player == "SCISSORS"){
+                console.log("Computer chose Rock, you lose...")
+            }
+
+            if(comp == "PAPER" && player == "ROCK"){
+                console.log("Computer chose Paper, you lose...")
+            }
+            else if(comp == "PAPER" && player == "PAPER"){
+                console.log("Computer chose Paper, tie game")
+            }
+            else if(comp == "PAPER" && player == "SCISSORS"){
+                console.log("Computer chose Paper, you win!")
+            }
+
+            if(comp == "SCISSORS" && player == "ROCK"){
+                console.log("Computer chose Scissors, you win!")
+            }
+            else if(comp == "SCISSORS" && player == "PAPER"){
+                console.log("Computer chose Scissors, you lose...")
+            }
+            else if(comp == "SCISSORS" && player == "SCISSORS"){
+                console.log("Computer chose Scissors, tie game")
+            }
+        }
+
+        function playGame(){
+            compWins = 0;
+            playerWins = 0;
+            for (let i = 0; i < 5; i++){
+                playerChoice = getPlayer()
+                computerChoice = getComputer()
+                singleRound(computerChoice, playerChoice)
+            }
+        }
+
+        playGame()
+
+    </script>
+</body>
+</html>
